@@ -1,0 +1,16 @@
+object frmAnoBissexto: TfrmAnoBissexto
+  Left = 624
+  Top = 245
+  Width = 294
+  Height = 162
+  Caption = 'Ano Bissexto'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+end

@@ -1,0 +1,24 @@
+unit AnoBissexto;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TfrmAnoBissexto = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAnoBissexto: TfrmAnoBissexto;
+
+implementation
+
+{$R *.dfm}
+
+end.
