@@ -1,0 +1,67 @@
+unit Funcao;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, FuncaoExterna;
+
+type
+  TfrmFunction = class(TForm)
+    btPrivada: TButton;
+    btUnit: TButton;
+    edValor: TEdit;
+    edResultado: TEdit;
+    procedure btPrivadaClick(Sender: TObject);
+    procedure btUnitClick(Sender: TObject);
+  private
+    ARL_TFuncaoExterna : TFuncaoExterna;
+    function Quadrado(prinNumero: Integer) : Integer;
+    function IsNumeric(prstValor: String)  : Boolean;
+
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFunction: TfrmFunction;
+
+implementation
+
+{$R *.dfm}
+
+function TfrmFunction.Quadrado(prinNumero: Integer): Integer;
+begin
+    Result := prinNumero * 2;
+end;
+
+function TfrmFunction.IsNumeric(prstValor: String) : Boolean;
+var
+  i, iCode: Integer;
+begin
+  val(prstValor, i, iCode);
+  if iCode = 0 then
+    Result := true
+  else
+    Result := false;
+end;
+
+procedure TfrmFunction.btPrivadaClick(Sender: TObject);
+begin
+  if IsNumeric(edValor.Text) then
+     edResultado.Text := IntToStr(Quadrado(StrToInt(edValor.Text)))
+  else
+     ShowMessage('Valor inválido');
+end;
+
+procedure TfrmFunction.btUnitClick(Sender: TObject);
+begin
+  ARL_TFuncaoExterna := TFuncaoExterna.Create;
+  if IsNumeric(edValor.Text) then
+    edResultado.Text := IntToStr(ARL_TFuncaoExterna.Quadrado(StrToInt(edValor.Text)))
+  else
+    ShowMessage('Valor inválido');
+  ARL_TFuncaoExterna.Destroy;
+end;
+
+end.
